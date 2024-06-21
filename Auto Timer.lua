@@ -159,7 +159,7 @@ end
 coroutine.wrap(EIBRF_fake_script)()
 
 local function shoot()
-    --[[local player = game.Players.LocalPlayer
+    local player = game.Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
 
     game:GetService("ReplicatedStorage").GameEvents.ClientAction:FireServer("Shoot", true)
@@ -171,9 +171,7 @@ local function shoot()
             game:GetService("ReplicatedStorage").GameEvents.ClientAction:FireServer("Shoot", false)
             break
         end
-    end]]
-
-	print("hi")
+    end
 end
 
 UserInputService.InputBegan:Connect(function(input)
