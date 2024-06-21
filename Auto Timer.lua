@@ -159,7 +159,7 @@ end
 coroutine.wrap(EIBRF_fake_script)()
 
 local function shoot()
-    local player = game.Players.LocalPlayer
+    --[[local player = game.Players.LocalPlayer
     local character = player.Character or player.CharacterAdded:Wait()
 
     game:GetService("ReplicatedStorage").GameEvents.ClientAction:FireServer("Shoot", true)
@@ -171,11 +171,15 @@ local function shoot()
             game:GetService("ReplicatedStorage").GameEvents.ClientAction:FireServer("Shoot", false)
             break
         end
-    end
+    end]]
+
+	print("hi")
 end
 
 UserInputService.InputBegan:Connect(function(input)
     if input.KeyCode == Enum.KeyCode.F then
         shoot()
-    end
+	elseif input.KeyCode == Enum.KeyCode.RightShift then
+		ScreenGui.Enabled = not ScreenGui.Enabled
+	end
 end)
