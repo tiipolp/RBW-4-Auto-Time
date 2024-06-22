@@ -174,10 +174,12 @@ local function shoot()
     end
 end
 
-UserInputService.InputBegan:Connect(function(input)
-    if input.KeyCode == Enum.KeyCode.F then
-        shoot()
-	elseif input.KeyCode == Enum.KeyCode.RightShift then
-		ScreenGui.Enabled = not ScreenGui.Enabled
-	end
+UserInputService.InputBegan:Connect(function(input, gameProcessedEvent)
+	if not gameProcessedEvent then
+        if input.KeyCode == Enum.KeyCode.ButtonL1 or input.KeyCode == Enum.KeyCode.ButtonL2 then
+            shoot()
+        elseif input.KeyCode == Enum.KeyCode.F then
+            shoot()
+        end
+    end
 end)
